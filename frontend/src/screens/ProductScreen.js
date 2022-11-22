@@ -10,8 +10,7 @@ import {
   Form,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
-import axios from "axios";
+
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../actions/producActions";
 
