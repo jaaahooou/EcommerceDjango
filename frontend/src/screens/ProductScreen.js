@@ -20,7 +20,6 @@ const ProductScreen = () => {
   let { id } = useParams();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-  console.log(product);
 
   const dispatch = useDispatch();
   useEffect(() => {
