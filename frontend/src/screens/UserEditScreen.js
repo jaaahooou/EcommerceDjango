@@ -8,7 +8,7 @@ import { getUserDetails, updateUser } from "../actions/userActions";
 import Message from "../components/Message";
 import { USER_UPDATE_RESET } from "../constants/userConstats";
 
-function EditUserScreen() {
+function UserEditScreen() {
   let userId = useParams();
   let navigate = useNavigate();
 
@@ -107,4 +107,4 @@ function EditUserScreen() {
   );
 }
 
-export default EditUserScreen;
+export default UserEditScreen;
