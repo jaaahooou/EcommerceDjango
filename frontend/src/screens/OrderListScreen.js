@@ -65,7 +65,11 @@ const OrderListScreen = () => {
 
                 <td>
                   {order.isDelivered ? (
-                    order.deliveredAt.substring(0, 10)
+                    order.deliveredAt ? (
+                      order.deliveredAt.substring(0, 10)
+                    ) : (
+                      <span>sth wrong with date</span>
+                    )
                   ) : (
                     <i className="fas fa-check" style={{ color: "red" }}></i>
                   )}
