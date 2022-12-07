@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/producActions";
 import { useNavigate, useLocation } from "react-router-dom";
 import Paginate from "../components/Paginate";
+import ProductCarousel from "../components/ProductCarousel";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -14,13 +15,16 @@ const HomeScreen = () => {
   const { error, loading, products, page, pages } = productList;
 
   let keyword = location.search;
-  console.log(keyword);
+
+  console.log("KEY: ", keyword);
   useEffect(() => {
     dispatch(listProducts(keyword));
   }, [dispatch, keyword]);
 
   return (
     <div>
+      {!keyword && <ProductCarousel />}
+
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
@@ -35,6 +39,7 @@ const HomeScreen = () => {
               </Col>
             ))}
           </Row>
+
           <Paginate page={page} pages={pages} keyword={keyword} />
         </div>
       )}

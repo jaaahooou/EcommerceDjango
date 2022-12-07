@@ -12,22 +12,7 @@ function Paginate({ pages, page, keyword = "", isAdmin = false }) {
   return (
     pages > 1 && (
       <div>
-        {!isAdmin ? (
-          <Pagination>
-            {[...Array(pages).keys()].map((x) => (
-              <LinkContainer
-                key={x + 1}
-                to={{
-                  search: `?keyword=${keyword}&page=${x + 1}`,
-                }}
-              >
-                <Pagination.Item active={x + 1 === page}>
-                  {x + 1}|{page}{" "}
-                </Pagination.Item>
-              </LinkContainer>
-            ))}
-          </Pagination>
-        ) : (
+        {isAdmin ? (
           <Pagination>
             {[...Array(pages).keys()].map((x) => (
               <LinkContainer
@@ -40,6 +25,21 @@ function Paginate({ pages, page, keyword = "", isAdmin = false }) {
               >
                 <Pagination.Item active={x + 1 === page}>
                   {x + 1}{" "}
+                </Pagination.Item>
+              </LinkContainer>
+            ))}
+          </Pagination>
+        ) : (
+          <Pagination>
+            {[...Array(pages).keys()].map((x) => (
+              <LinkContainer
+                key={x + 1}
+                to={{
+                  search: `?keyword=${keyword}&page=${x + 1}`,
+                }}
+              >
+                <Pagination.Item active={x + 1 === page}>
+                  {x + 1}
                 </Pagination.Item>
               </LinkContainer>
             ))}
