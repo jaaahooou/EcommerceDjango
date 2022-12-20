@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mainApp', '0004_rename_continstock_product_countinstock'),
+        ('mainApp','0002_order_shippingaddress_review_orderitem'),
     ]
 
     operations = [

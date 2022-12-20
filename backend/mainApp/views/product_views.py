@@ -15,9 +15,10 @@ def getProducts(request):
    
     if query == None:
         query=''
-    products= Product.objects.filter(name__icontains=query)
+    # products= Product.objects.filter(name__icontains=query)
+    products= Product.objects.get_queryset().order_by('_id')
     page = request.query_params.get('page')
-    paginator = Paginator(products, 9)
+    paginator = Paginator(products, 6)
     try:
         products = paginator.page(page)
     except PageNotAnInteger:
@@ -95,10 +96,14 @@ def deleteProduct(request,pk):
 
 
 @api_view(['POST'])
-@permission_classes([IsAdminUser])
+
 def uploadImage(request):
+   
     data= request.data
+    print('DATA: ', data)
     product_id = data['product_id']
+    print(product_id)
+    print('Starting adding an image')
     product = Product.objects.get(_id=product_id)
 
     product.image = request.FILES.get('image')
