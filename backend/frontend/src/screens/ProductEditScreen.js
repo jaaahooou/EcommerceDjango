@@ -117,6 +117,14 @@ function ProductEditScreen() {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
+
+              <Form.Control
+                type="file"
+                id="image-file"
+                label="Choose file"
+                custom
+                onChange={uploadFileHandler}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="brand">
