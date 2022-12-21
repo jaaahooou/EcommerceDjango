@@ -139,6 +139,17 @@ DATABASES = {
 }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'incredibleshop',
+#         'USER': 'postgres',
+#         'PASSWORD': '31537597Gg',
+#         'HOST' : 'localhost',
+#         'PORT':'5432',
+#     }
+# }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
