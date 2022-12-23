@@ -8,11 +8,12 @@ import { listTopProducts } from "../actions/producActions";
 
 function ProductCarousel() {
   const dispatch = useDispatch();
-  const productTpoRated = useSelector((state) => state.productTopRated);
-  const { error, loading, products } = productTpoRated;
+  const productTopRated = useSelector((state) => state.productTopRated);
+  const { error, loading, products } = productTopRated;
   useEffect(() => {
     dispatch(listTopProducts());
   }, [dispatch]);
+  console.log(products);
   return loading ? (
     <Loader />
   ) : error ? (
@@ -21,6 +22,7 @@ function ProductCarousel() {
     <Carousel pause="hover" className="bg-dark">
       {products.map((product) => (
         <Carousel.Item key={product._id}>
+          <div>sdsds{product}</div>
           <Link to={`/product/${product._id}`}>
             <Image src={product.image} alt={product.name} fluid />
             <Carousel.Caption className="carousel.caption">

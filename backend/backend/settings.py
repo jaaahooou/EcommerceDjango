@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mainApp.apps.MainappConfig',
     'rest_framework',
     "corsheaders",
+    "storages",
 ]
 
 
@@ -131,24 +132,24 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'incredibleshop',
-#         'USER': 'postgres',
-#         'PASSWORD': '31537597Gg',
-#         'HOST' : 'localhost',
-#         'PORT':'5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '31537597Gg',
+        'HOST' : 'database-1.ccso7pdytscs.eu-central-1.rds.amazonaws.com',
+        'PORT':'5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -199,3 +200,9 @@ MEDIA_ROOT = 'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS=True
+
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIASNSRNA4CJU73UM7D'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mybucket-jack'
