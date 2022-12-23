@@ -64,7 +64,7 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile (Updated)</h2>
+        <h2>User Profile</h2>
 
         {message && <h1>Password do not match</h1>}
         {error && <h1>{error}</h1>}
