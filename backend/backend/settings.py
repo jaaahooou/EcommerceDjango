@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=1h%z&!^zp=$l^46vfq%1k#&d^)9@46#s0p)afnmf_7rj9$*1d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','incredibleshop.herokuapp.com']
 
 
 # Application definition
@@ -96,8 +96,9 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
-
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -145,7 +146,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '31537597Gg',
+        'PASSWORD': os.environ.get('DB_PASS'),
         'HOST' : 'database-1.ccso7pdytscs.eu-central-1.rds.amazonaws.com',
         'PORT':'5432',
     }
@@ -192,7 +193,8 @@ STATICFILES_DIRS= [
     BASE_DIR / 'frontend/build/static'
 ]
 
-MEDIA_ROOT = 'static/images'
+MEDIA_ROOT = BASE_DIR / 'static/images'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -203,6 +205,9 @@ CORS_ALLOW_ALL_ORIGINS=True
 
 AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIASNSRNA4CJU73UM7D'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'mybucket-jack'
+
+if os.getcwd() == '/app':
+    DEBUG = False
