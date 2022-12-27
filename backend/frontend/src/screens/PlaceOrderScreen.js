@@ -16,10 +16,17 @@ import { register } from "../actions/userActions";
 import Message from "../components/Message";
 import { createOrder } from "../actions/orderActions";
 import { ORDER_CREATE_RESET } from "../constants/OrderConstants";
+import { login } from "../actions/userActions";
 
 function PlaceOrderScreen() {
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, error, success } = orderCreate;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userError, loading, userInfo } = userLogin;
+
+  console.log(userLogin);
+
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -159,14 +166,18 @@ function PlaceOrderScreen() {
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  disabled={cart.cartItems === 0}
-                  onClick={placeOrder}
-                >
-                  Place Order
-                </Button>
+                {userInfo == null ? (
+                  <Message variant="danger">You must be logged in</Message>
+                ) : (
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    disabled={cart.cartItems === 0}
+                    onClick={placeOrder}
+                  >
+                    Place Order
+                  </Button>
+                )}
               </ListGroup.Item>
             </ListGroup>
           </Card>

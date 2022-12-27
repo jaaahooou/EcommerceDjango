@@ -22,8 +22,7 @@ function ProductCarousel() {
     <Carousel pause="hover" className="bg-dark">
       {products.map((product) => (
         <Carousel.Item key={product._id}>
-          <div>sdsds{product}</div>
-          <Link to={`/product/${product._id}`}>
+          <Link to={`/products/${product._id}`}>
             <Image src={product.image} alt={product.name} fluid />
             <Carousel.Caption className="carousel.caption">
               <h4>
