@@ -103,14 +103,14 @@ function OrderScreen() {
   ) : (
     <div>
       <Row>
-        <h1>Order: {order._id}</h1>
+        <h1>Zamówienie: {order._id}</h1>
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>Wysyłka</h2>
               <p>
                 {" "}
-                <strong> Name: </strong> {order.user.name}{" "}
+                <strong> Nazwa: </strong> {order.user.name}{" "}
               </p>
               <p>
                 <strong> Email: </strong>{" "}
@@ -118,7 +118,7 @@ function OrderScreen() {
               </p>
 
               <p>
-                <strong>Shipping: </strong>
+                <strong>Wysyłka: </strong>
                 {order.shippingAddress.address},{order.shippingAddress.city},
                 {"  "}
                 {order.shippingAddress.postalCode},{"  "}
@@ -126,30 +126,29 @@ function OrderScreen() {
               </p>
               {order.isDelivered ? (
                 <Message variant="success">
-                  Delivered on {order.deliveredAt}
+                  Dostarczone dnia: {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant="warning">Not Delivered</Message>
+                <Message variant="warning">Nie dostarczone</Message>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Payment method</h2>
-              <p>
-                <strong>Method:</strong>
-                {order.paymentMethod}
-              </p>
+              <h2>Metoda płatności</h2>
+              <p>{order.paymentMethod}</p>
 
               {order.isPaid ? (
-                <Message variant="success">Paid on {order.paidAt}</Message>
+                <Message variant="success">
+                  Zapłacone dnia: {order.paidAt}
+                </Message>
               ) : (
-                <Message variant="warning">Not Paid</Message>
+                <Message variant="warning">Nie opłacone</Message>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>Zamówienie</h2>
 
               {order.orderItems.length === 0 ? (
-                <Message variant="info">Order is empty</Message>
+                <Message variant="info">Zamówienie jest puste</Message>
               ) : (
                 <ListGroup variant="flush">
                   {order.orderItems.map((item, index) => (
@@ -171,8 +170,8 @@ function OrderScreen() {
                         </Col>
 
                         <Col md={4}>
-                          {item.qty} X ${item.price} = $
-                          {(item.qty * item.price).toFixed(2)}
+                          {item.qty} X {item.price}zł =
+                          {(item.qty * item.price).toFixed(2)}zł
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -186,34 +185,34 @@ function OrderScreen() {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Podsumowanie</h2>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Items:</Col>
+                  <Col>Zamówienie:</Col>
                   <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Shipping:</Col>
+                  <Col>Koszt wysyłki:</Col>
                   <Col>${order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax:</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col>VAT:</Col>
+                  <Col>{order.taxPrice}zł</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Total:</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col>Suma:</Col>
+                  <Col>{order.totalPrice}zł</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -242,7 +241,7 @@ function OrderScreen() {
                     className="btn btn-block"
                     onClick={deliverHandler}
                   >
-                    Mark As Delivered
+                    Zaznacz jako dostarczone
                   </Button>
                 </ListGroup.Item>
               )}

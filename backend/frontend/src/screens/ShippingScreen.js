@@ -24,11 +24,11 @@ function ShippingScreen() {
   };
   return (
     <FormContainer>
-      <h1>Shipping</h1>
+      <h1>Wysyłka</h1>
       <CheckoutSteps step1 step2 />
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
-          <Form.Label>Address</Form.Label>
+          <Form.Label>Adres</Form.Label>
           <Form.Control
             required
             type="text"
@@ -39,7 +39,7 @@ function ShippingScreen() {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label>City</Form.Label>
+          <Form.Label>Miasto</Form.Label>
           <Form.Control
             required
             type="text"
@@ -50,7 +50,7 @@ function ShippingScreen() {
         </Form.Group>
 
         <Form.Group controlId="postalCode">
-          <Form.Label>Postal Code</Form.Label>
+          <Form.Label>Kod pocztowy</Form.Label>
           <Form.Control
             required
             type="text"
@@ -61,7 +61,7 @@ function ShippingScreen() {
         </Form.Group>
 
         <Form.Group controlId="country">
-          <Form.Label>Country</Form.Label>
+          <Form.Label>Kraj</Form.Label>
           <Form.Control
             required
             type="text"
@@ -72,7 +72,7 @@ function ShippingScreen() {
         </Form.Group>
 
         <Button type="submit" variant="primary">
-          Continue
+          Dalej
         </Button>
       </Form>
     </FormContainer>

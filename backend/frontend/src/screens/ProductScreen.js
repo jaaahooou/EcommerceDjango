@@ -68,7 +68,7 @@ const ProductScreen = () => {
   return (
     <div>
       <Link to="/" className="btn btn-light my-3">
-        Go home
+        Wróć
       </Link>
       <div>
         <Row>
@@ -88,10 +88,8 @@ const ProductScreen = () => {
                 />
               </ListGroup.Item>
 
-              <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-              <ListGroup.Item>
-                Description: {product.description}
-              </ListGroup.Item>
+              <ListGroup.Item>Cena: {product.price}zł</ListGroup.Item>
+              <ListGroup.Item>Opis: {product.description}</ListGroup.Item>
             </ListGroup>
           </Col>
           <Col md={3}>
@@ -99,10 +97,10 @@ const ProductScreen = () => {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
-                    <Col>Price:</Col>
+                    <Col>Cena:</Col>
                     <Col>
                       {" "}
-                      <strong>${product.price}</strong>{" "}
+                      <strong>{product.price}zł</strong>{" "}
                     </Col>
                   </Row>
                   <Row>
@@ -116,7 +114,7 @@ const ProductScreen = () => {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <Row>
-                      <Col> Qty</Col>
+                      <Col>Ilość</Col>
                       <Col xs="auto" className="my-1">
                         {" "}
                         <Form.Control
@@ -142,7 +140,7 @@ const ProductScreen = () => {
                     disabled={product.countInStock === 0 ? true : false}
                     type="button"
                   >
-                    Add to Cart
+                    Dodaj do koszyka
                   </Button>
                 </ListGroup.Item>
               </ListGroup>
@@ -153,7 +151,7 @@ const ProductScreen = () => {
         <Row>
           <Col md={6}>
             {product.reviews.length === 0 && (
-              <Message variant="info">No reviews</Message>
+              <Message variant="info">Brak opini</Message>
             )}
 
             <ListGroup variant="flush">
@@ -166,11 +164,11 @@ const ProductScreen = () => {
                 </ListGroup.Item>
               ))}{" "}
               <ListGroup.Item>
-                <h4>Write a review</h4>
+                <h4>Napisz opinię</h4>
 
                 {loadingProductReview && <Loader />}
                 {successProductReview && (
-                  <Message variant="success">Review Submitted</Message>
+                  <Message variant="success">Opinia dodana</Message>
                 )}
                 {errorProductReview && (
                   <Message variant="danger">{errorProductReview}</Message>
@@ -184,16 +182,16 @@ const ProductScreen = () => {
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
                       >
-                        <option value="">Select...</option>
-                        <option value="1">1 - Poor</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="3">3 - Good</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="5">5 - Excellent</option>
+                        <option value="">Wybierz...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="comment">
-                      <Form.Label>Review</Form.Label>
+                      <Form.Label>Opinia</Form.Label>
                       <Form.Control
                         as="textarea"
                         row="5"
@@ -206,13 +204,13 @@ const ProductScreen = () => {
                         type="submit"
                         variant="primary"
                       >
-                        Submit
+                        Wyślij
                       </Button>
                     </Form.Group>
                   </Form>
                 ) : (
                   <Message variant="info">
-                    Please <Link to="/login">Login</Link> to write review{" "}
+                    <Link to="/login">Zaloguj się</Link> aby dodać opinię{" "}
                   </Message>
                 )}
               </ListGroup.Item>

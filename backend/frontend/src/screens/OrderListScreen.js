@@ -29,7 +29,7 @@ const OrderListScreen = () => {
 
   return (
     <div>
-      <h1>Orders</h1>
+      <h1>Zamówienia</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -39,11 +39,11 @@ const OrderListScreen = () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>USER</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
+              <th>UŻYTKOWNIK</th>
+              <th>DATA</th>
+              <th>SUMA</th>
+              <th>STATUS PŁATNOŚCI</th>
+              <th>STATUS DORĘCZENIA</th>
               <th></th>
             </tr>
           </thead>
@@ -78,7 +78,7 @@ const OrderListScreen = () => {
                 <td>
                   <LinkContainer to={`/order/${order._id}`}>
                     <Button variant="light" className="btn-sm">
-                      Details
+                      Szczegóły
                     </Button>
                   </LinkContainer>
                 </td>

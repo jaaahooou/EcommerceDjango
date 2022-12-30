@@ -9,7 +9,6 @@ const Product = ({ product }) => {
       <Link to={`/products/${product._id}`}>
         <Card.Img src={product.image} />
       </Link>
-
       <Card.Body>
         <Link to={`/products/${product._id}`}>
           <Card.Title as="div">

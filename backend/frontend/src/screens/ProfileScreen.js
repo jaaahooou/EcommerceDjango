@@ -64,14 +64,14 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <h2>Profil użytkownika</h2>
 
-        {message && <h1>Password do not match</h1>}
+        {message && <h1>Hasło nie pasuje</h1>}
         {error && <h1>{error}</h1>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Nazwa użytkownika</Form.Label>
             <Form.Control
               required
               type="name"
@@ -82,7 +82,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="email">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>Adres Email</Form.Label>
             <Form.Control
               required
               type="email"
@@ -93,7 +93,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Hasło</Form.Label>
             <Form.Control
               type="password"
               placeholder="Enter Password"
@@ -103,7 +103,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="passwordConfirm">
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>Powtórz hasło</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm Password"
@@ -113,12 +113,12 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Button type="submit" variant="primary">
-            Update
+            Zapisz
           </Button>
         </Form>
       </Col>
       <Col md={9}>
-        <h2>My orders</h2>
+        <h2>Moje zamówienia</h2>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
@@ -128,10 +128,10 @@ const ProfileScreen = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Date</th>
-                <th>Total</th>
-                <th>Paid</th>
-                <th>Delivered</th>
+                <th>Data</th>
+                <th>Suma</th>
+                <th>Status płatności</th>
+                <th>Status doręczenia</th>
                 <th></th>
               </tr>
             </thead>
@@ -150,7 +150,7 @@ const ProfileScreen = () => {
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}/`}>
-                      <Button className="btn-sm">Details</Button>
+                      <Button className="btn-sm">Szczegóły</Button>
                     </LinkContainer>
                   </td>
                 </tr>

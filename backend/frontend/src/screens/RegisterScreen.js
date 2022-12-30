@@ -36,13 +36,13 @@ function RegisterScreen() {
   };
   return (
     <FormContainer>
-      <h1>Sign in</h1>
-      {message && <h1>Password do not match</h1>}
+      <h1>Utwórz konto</h1>
+      {message && <h1>Hasła nie są takie same</h1>}
       {error && <h1>{error}</h1>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Nazwa użytkownika</Form.Label>
           <Form.Control
             required
             type="name"
@@ -53,7 +53,7 @@ function RegisterScreen() {
         </Form.Group>
 
         <Form.Group controlId="email">
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>Adres Email</Form.Label>
           <Form.Control
             required
             type="email"
@@ -64,7 +64,7 @@ function RegisterScreen() {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Hasło</Form.Label>
           <Form.Control
             required
             type="password"
@@ -75,7 +75,7 @@ function RegisterScreen() {
         </Form.Group>
 
         <Form.Group controlId="passwordConfirm">
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label>Powtórz hasło</Form.Label>
           <Form.Control
             required
             type="password"
@@ -86,15 +86,15 @@ function RegisterScreen() {
         </Form.Group>
 
         <Button type="submit" variant="primary">
-          Register
+          Utwórz użytkownika
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
-          Have an Account?{" "}
+          Masz już konto?{" "}
           <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            Sign In
+            Zaloguj się
           </Link>
         </Col>
       </Row>

@@ -56,9 +56,9 @@ function UserEditScreen() {
   };
   return (
     <div>
-      <Link to="/admin/userlist">Go Back</Link>
+      <Link to="/admin/userlist">Wróć</Link>
       <FormContainer>
-        <h1>Edit User</h1>
+        <h1>Edytuj użytkownika</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{error}</Message>}
 
@@ -69,7 +69,7 @@ function UserEditScreen() {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nazwa użytkownika</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
@@ -79,7 +79,7 @@ function UserEditScreen() {
             </Form.Group>
 
             <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Adres Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter Email"
@@ -98,7 +98,7 @@ function UserEditScreen() {
             </Form.Group>
 
             <Button type="submit" variant="primary">
-              Update
+              Zapisz
             </Button>
           </Form>
         )}

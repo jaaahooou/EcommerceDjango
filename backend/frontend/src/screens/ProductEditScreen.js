@@ -98,10 +98,10 @@ function ProductEditScreen() {
   };
   return (
     <div>
-      <Link to="/admin/productlist">Go Back</Link>
+      <Link to="/admin/productlist">Wróć</Link>
 
       <FormContainer>
-        <h1>Edit Product</h1>
+        <h1>Edytuj produkt</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
 
@@ -112,7 +112,7 @@ function ProductEditScreen() {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nazwa</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
@@ -122,7 +122,7 @@ function ProductEditScreen() {
             </Form.Group>
 
             <Form.Group controlId="price">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Cena</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter price"
@@ -133,7 +133,7 @@ function ProductEditScreen() {
 
             {/* <Form.Group controlId="image"> */}
             <Form.Group>
-              <Form.Label>Image</Form.Label>
+              <Form.Label>Zdjęcie</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter image"
@@ -153,7 +153,7 @@ function ProductEditScreen() {
             </Form.Group>
 
             <Form.Group controlId="brand">
-              <Form.Label>Brand</Form.Label>
+              <Form.Label>Marka</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter brand"
@@ -163,7 +163,7 @@ function ProductEditScreen() {
             </Form.Group>
 
             <Form.Group controlId="countinstock">
-              <Form.Label>Stock</Form.Label>
+              <Form.Label>Ilość</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter stock"
@@ -173,7 +173,7 @@ function ProductEditScreen() {
             </Form.Group>
 
             <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
+              <Form.Label>Kategoria</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter category"
@@ -183,7 +183,7 @@ function ProductEditScreen() {
             </Form.Group>
 
             <Form.Group controlId="description">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Opis</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter description"
@@ -193,7 +193,7 @@ function ProductEditScreen() {
             </Form.Group>
 
             <Button type="submit" variant="primary">
-              Update
+              Zapisz
             </Button>
           </Form>
         )}

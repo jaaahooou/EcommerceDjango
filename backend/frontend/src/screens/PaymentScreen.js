@@ -27,7 +27,7 @@ function PaymentScreen() {
       <CheckoutSteps step1 step2 step3 />
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as="legend"> Select Method</Form.Label>
+          <Form.Label as="legend">Wybierz metodę</Form.Label>
           <Col>
             <Form.Check
               type="radio"
@@ -41,7 +41,7 @@ function PaymentScreen() {
         </Form.Group>
 
         <Button type="submit" variant="primary">
-          Continue
+          Kontynuj
         </Button>
       </Form>
     </FormContainer>
