@@ -25,32 +25,46 @@ function Header() {
   return (
     <div>
       <header>
-        <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+        <Navbar
+          expand="lg"
+          collapseOnSelect
+          style={{
+            borderBottom: "1px solid black",
+            position: "fixed",
+            width: "100vw",
+            color: "grey",
+            zIndex: "990",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          }}
+        >
           <Container>
-            <LinkContainer to="/">
+            <LinkContainer style={{ color: "bisque" }} to="/">
               <Navbar.Brand href="/">IncredibleShop</Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <SearchBox />
               <Nav className="ml-auto">
-                <LinkContainer to="/cart">
+                <LinkContainer style={{ color: "bisque" }} to="/cart">
                   <Nav.Link href="#home">
                     <i className="fas fa-shopping-cart"></i> Cart
                   </Nav.Link>
                 </LinkContainer>
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="username">
-                    <LinkContainer to="/profile">
+                    <LinkContainer style={{ color: "bisque" }} to="/profile">
                       <NavDropdown.Item>Profile</NavDropdown.Item>
                     </LinkContainer>
 
-                    <NavDropdown.Item onClick={logoutHandler}>
+                    <NavDropdown.Item
+                      style={{ color: "bisque" }}
+                      onClick={logoutHandler}
+                    >
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
                 ) : (
-                  <LinkContainer to="/login">
+                  <LinkContainer style={{ color: "bisque" }} to="/login">
                     <Nav.Link href="#link">
                       {" "}
                       <i className="fas fa-user"></i>Login

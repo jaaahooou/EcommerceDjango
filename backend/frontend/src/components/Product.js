@@ -5,13 +5,20 @@ import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   return (
-    <Card className="my-p p-3 rounded">
+    <Card
+      className="my-p p-3 rounded"
+      style={{
+        backgroundColor: "rgba(0,0,0,0.3)",
+        marginBottom: "10px",
+        minHeight: "485px",
+      }}
+    >
       <Link to={`/products/${product._id}`}>
         <Card.Img src={product.image} />
       </Link>
       <Card.Body>
         <Link to={`/products/${product._id}`}>
-          <Card.Title as="div">
+          <Card.Title as="div" style={{ color: "grey" }}>
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>

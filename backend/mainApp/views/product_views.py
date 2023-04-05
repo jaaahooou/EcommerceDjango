@@ -18,7 +18,7 @@ def getProducts(request):
     # products= Product.objects.filter(name__icontains=query)
     products= Product.objects.get_queryset().order_by('_id')
     page = request.query_params.get('page')
-    paginator = Paginator(products, 6)
+    paginator = Paginator(products, 9)
     try:
         products = paginator.page(page)
     except PageNotAnInteger:

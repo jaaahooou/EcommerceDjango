@@ -56,3 +56,33 @@ h3 {
 .header-search-form {
   display: flex;
 }
+
+.product-card {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+a .navbar-brand {
+  color: bisque;
+}
+/* #root {
+  background: linear-gradient(
+    233deg,
+    rgb(40 40 42) 0%,
+    rgb(56 56 56) 35%,
+    rgb(12 14 15) 100%
+  );
+} */
+body {
+  background: linear-gradient(
+    233deg,
+    rgb(40 40 42) 0%,
+    rgb(56 56 56) 35%,
+    rgb(12 14 15) 100%
+  );
+}
+
+@media (min-width: 1200px) {
+  .product-screen {
+    height: 100vh;
+  }
+}

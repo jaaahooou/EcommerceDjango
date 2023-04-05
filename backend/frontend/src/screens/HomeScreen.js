@@ -25,7 +25,7 @@ const HomeScreen = () => {
     <div>
       {!keyword && <ProductCarousel />}
 
-      <h1>Produkty</h1>
+      <h1>Products</h1>
       {loading ? (
         <Loader />
       ) : error ? (

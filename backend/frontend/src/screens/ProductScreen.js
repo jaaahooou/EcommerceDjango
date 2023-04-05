@@ -19,7 +19,6 @@ import {
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import Paginate from "../components/Paginate";
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
@@ -66,9 +65,18 @@ const ProductScreen = () => {
   };
 
   return (
-    <div>
-      <Link to="/" className="btn btn-light my-3">
-        Wróć
+    <div className="product-screen">
+      <Link to="/" className="btn my-3">
+        <Button
+          variant="outline-dark"
+          style={{
+            marginLeft: "5px",
+            borderRadius: "5px",
+            color: "bisque",
+          }}
+        >
+          Back
+        </Button>
       </Link>
       <div>
         <Row>
@@ -77,10 +85,20 @@ const ProductScreen = () => {
           </Col>
           <Col md={3}>
             <ListGroup variant="flush">
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <h3>{product.name}</h3>
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <Rating
                   value={product.rating}
                   text={`${product.numReviews} rewievs`}
@@ -88,14 +106,44 @@ const ProductScreen = () => {
                 />
               </ListGroup.Item>
 
-              <ListGroup.Item>Cena: {product.price}zł</ListGroup.Item>
-              <ListGroup.Item>Opis: {product.description}</ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
+                Cena: {product.price}zł
+              </ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
+                Opis: {product.description}
+              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col md={3}>
-            <Card>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
+            <Card
+              style={{
+                backgroundColor: "rgba(0,0,0,0)",
+                color: "bisque",
+              }}
+            >
+              <ListGroup
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+                variant="flush"
+              >
+                <ListGroup.Item
+                  style={{
+                    backgroundColor: "rgba(0,0,0,0.1)",
+                    color: "bisque",
+                  }}
+                >
                   <Row>
                     <Col>Cena:</Col>
                     <Col>
@@ -112,12 +160,20 @@ const ProductScreen = () => {
                 </ListGroup.Item>
 
                 {product.countInStock > 0 && (
-                  <ListGroup.Item>
+                  <ListGroup.Item
+                    style={{
+                      backgroundColor: "rgba(0,0,0,0.1)",
+                      color: "bisque",
+                    }}
+                  >
                     <Row>
                       <Col>Ilość</Col>
                       <Col xs="auto" className="my-1">
                         {" "}
                         <Form.Control
+                          style={{
+                            backgroundColor: "rgba(0,0,0,0.1)",
+                          }}
                           as="select"
                           calue={qty}
                           onChange={(e) => setQty(e.target.value)}
@@ -133,12 +189,19 @@ const ProductScreen = () => {
                   </ListGroup.Item>
                 )}
 
-                <ListGroup.Item>
+                <ListGroup.Item
+                  style={{
+                    backgroundColor: "rgba(0,0,0,0.1)",
+                    color: "bisque",
+                  }}
+                >
                   <Button
                     onClick={addToCartHandler}
                     className="btn-block"
+                    variant="outline-dark"
                     disabled={product.countInStock === 0 ? true : false}
                     type="button"
+                    style={{ backgroundColor: "rgba(0,0,0,0.5" }}
                   >
                     Dodaj do koszyka
                   </Button>
@@ -151,7 +214,14 @@ const ProductScreen = () => {
         <Row>
           <Col md={6}>
             {product.reviews.length === 0 && (
-              <Message variant="info">Brak opini</Message>
+              <Message
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
+                Brak opini
+              </Message>
             )}
 
             <ListGroup variant="flush">
@@ -163,7 +233,12 @@ const ProductScreen = () => {
                   <p>{review.comment}</p>
                 </ListGroup.Item>
               ))}{" "}
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <h4>Napisz opinię</h4>
 
                 {loadingProductReview && <Loader />}
@@ -209,8 +284,11 @@ const ProductScreen = () => {
                     </Form.Group>
                   </Form>
                 ) : (
-                  <Message variant="info">
-                    <Link to="/login">Zaloguj się</Link> aby dodać opinię{" "}
+                  <Message>
+                    <Link style={{ color: "bisque" }} to="/login">
+                      Zaloguj się
+                    </Link>{" "}
+                    aby dodać opinię{" "}
                   </Message>
                 )}
               </ListGroup.Item>

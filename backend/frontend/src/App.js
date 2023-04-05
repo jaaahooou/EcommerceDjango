@@ -24,7 +24,7 @@ function App() {
     <Router>
       <Header />
       <main className="py-3">
-        <Container>
+        <Container style={{ marginTop: "76px" }}>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/login" element={<LoginScreen />} />
