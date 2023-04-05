@@ -43,27 +43,42 @@ const CartScreen = () => {
   return (
     <Row>
       <Col md={8}>
-        <h1>Koszyk zamówień</h1>
+        <h1>Cart</h1>
         {cartItems.length === 0 ? (
           <Message variant="info">
-            Twój koszyk jest pusty <Link to="/">Wróć do sklepu</Link>
+            Your cart is empty<Link to="/">Back</Link>
           </Message>
         ) : (
           <ListGroup variant="flush">
             {cartItems.map((item) => (
-              <ListGroup.Item key={item.product}>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.5)",
+                  color: "bisque",
+                }}
+                key={item.product}
+              >
                 <Row>
                   <Col md={2}>
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
-                  <Col md={3}>
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                  <Col
+                    style={{
+                      marginTop: "10px",
+                    }}
+                    md={3}
+                  >
+                    {item.name}
                   </Col>
 
                   <Col md={2}>${item.price}</Col>
 
                   <Col md={3}>
                     <Form.Control
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0.3)",
+                        marginTop: "10px",
+                      }}
                       as="select"
                       value={item.qty}
                       onChange={(e) =>
@@ -82,6 +97,10 @@ const CartScreen = () => {
 
                   <Col md={1}>
                     <Button
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0)",
+                        color: "bisque",
+                      }}
                       type="button"
                       variant="light"
                       onClick={() => removeFromCartHandler(item.product)}
@@ -97,28 +116,46 @@ const CartScreen = () => {
       </Col>
 
       <Col md={4}>
-        <Card>
-          <ListGroup variant="flush">
-            <ListGroup.Item>
+        <Card
+          style={{
+            backgroundColor: "rgba(0,0,0,0.1)",
+          }}
+        >
+          <ListGroup
+            style={{
+              backgroundColor: "rgba(0,0,0,0.0)",
+            }}
+            variant="flush"
+          >
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.1)",
+                color: "bisque",
+              }}
+            >
               <h2>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
               </h2>
+              $
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
-              zł
             </ListGroup.Item>
           </ListGroup>
 
           <ListGroup.Item>
             <Button
               type="button"
+              style={{
+                margin: "5px",
+                borderRadius: "5px",
+              }}
               className="btn-block"
               disabled={cartItems.length === 0}
               onClick={checkoutHandler}
             >
-              Przejdź do kasy
+              Checkout
             </Button>
           </ListGroup.Item>
         </Card>

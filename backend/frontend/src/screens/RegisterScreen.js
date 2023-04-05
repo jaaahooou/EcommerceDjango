@@ -36,13 +36,13 @@ function RegisterScreen() {
   };
   return (
     <FormContainer>
-      <h1>Utwórz konto</h1>
-      {message && <h1>Hasła nie są takie same</h1>}
+      <h1>Create an account</h1>
+      {message && <h1>Passwords doesn`t match</h1>}
       {error && <h1>{error}</h1>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
-          <Form.Label>Nazwa użytkownika</Form.Label>
+          <Form.Label>User Name</Form.Label>
           <Form.Control
             required
             type="name"
@@ -53,7 +53,7 @@ function RegisterScreen() {
         </Form.Group>
 
         <Form.Group controlId="email">
-          <Form.Label>Adres Email</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
             required
             type="email"
@@ -64,7 +64,7 @@ function RegisterScreen() {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label>Hasło</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             required
             type="password"
@@ -75,7 +75,7 @@ function RegisterScreen() {
         </Form.Group>
 
         <Form.Group controlId="passwordConfirm">
-          <Form.Label>Powtórz hasło</Form.Label>
+          <Form.Label>Repeat password</Form.Label>
           <Form.Control
             required
             type="password"
@@ -85,16 +85,28 @@ function RegisterScreen() {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
-          Utwórz użytkownika
+        <Button
+          style={{
+            marginTop: "10px",
+            borderRadius: "5px",
+          }}
+          type="submit"
+          variant="primary"
+        >
+          Create an account
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
-          Masz już konto?{" "}
-          <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            Zaloguj się
+          Already have an account?{" "}
+          <Link
+            style={{
+              color: "bisque",
+            }}
+            to={redirect ? `/login?redirect=${redirect}` : "/login"}
+          >
+            Log in
           </Link>
         </Col>
       </Row>

@@ -103,14 +103,19 @@ function OrderScreen() {
   ) : (
     <div>
       <Row>
-        <h1>Zamówienie: {order._id}</h1>
+        <h1>Order: {order._id}</h1>
         <Col md={8}>
           <ListGroup variant="flush">
-            <ListGroup.Item>
-              <h2>Wysyłka</h2>
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.1",
+                color: "bisque",
+              }}
+            >
+              <h2>Shipping</h2>
               <p>
                 {" "}
-                <strong> Nazwa: </strong> {order.user.name}{" "}
+                <strong> User: </strong> {order.user.name}{" "}
               </p>
               <p>
                 <strong> Email: </strong>{" "}
@@ -118,7 +123,7 @@ function OrderScreen() {
               </p>
 
               <p>
-                <strong>Wysyłka: </strong>
+                <strong>Shipping: </strong>
                 {order.shippingAddress.address},{order.shippingAddress.city},
                 {"  "}
                 {order.shippingAddress.postalCode},{"  "}
@@ -126,33 +131,47 @@ function OrderScreen() {
               </p>
               {order.isDelivered ? (
                 <Message variant="success">
-                  Dostarczone dnia: {order.deliveredAt}
+                  Delivered: {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant="warning">Nie dostarczone</Message>
+                <Message variant="warning">Not delivered</Message>
               )}
             </ListGroup.Item>
-            <ListGroup.Item>
-              <h2>Metoda płatności</h2>
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.1",
+                color: "bisque",
+              }}
+            >
+              <h2>Payment method</h2>
               <p>{order.paymentMethod}</p>
 
               {order.isPaid ? (
-                <Message variant="success">
-                  Zapłacone dnia: {order.paidAt}
-                </Message>
+                <Message variant="success">Paid: {order.paidAt}</Message>
               ) : (
-                <Message variant="warning">Nie opłacone</Message>
+                <Message variant="warning">Not paid</Message>
               )}
             </ListGroup.Item>
-            <ListGroup.Item>
-              <h2>Zamówienie</h2>
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.1",
+                color: "bisque",
+              }}
+            >
+              <h2>Order</h2>
 
               {order.orderItems.length === 0 ? (
-                <Message variant="info">Zamówienie jest puste</Message>
+                <Message variant="info">Order is empty</Message>
               ) : (
                 <ListGroup variant="flush">
                   {order.orderItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
+                    <ListGroup.Item
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0.1",
+                        color: "bisque",
+                      }}
+                      key={index}
+                    >
                       <Row>
                         <Col md={1}>
                           <Image
@@ -163,8 +182,17 @@ function OrderScreen() {
                           />
                         </Col>
 
-                        <Col>
-                          <Link to={`/products/${item.product}`}>
+                        <Col
+                          style={{
+                            color: "bisque",
+                          }}
+                        >
+                          <Link
+                            style={{
+                              color: "bisque",
+                            }}
+                            to={`/products/${item.product}`}
+                          >
                             {item.name}
                           </Link>
                         </Col>
@@ -182,42 +210,77 @@ function OrderScreen() {
           </ListGroup>
         </Col>
         <Col md={4}>
-          <Card>
+          <Card
+            style={{
+              backgroundColor: "rgba(0,0,0,0)",
+              color: "bisque",
+            }}
+          >
             <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h2>Podsumowanie</h2>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
+                <h2>Summary</h2>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>Zamówienie:</Col>
+                  <Col>Order:</Col>
                   <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>Koszt wysyłki:</Col>
+                  <Col>Shipping costs:</Col>
                   <Col>${order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>VAT:</Col>
-                  <Col>{order.taxPrice}zł</Col>
+                  <Col>TAX:</Col>
+                  <Col>${order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>Suma:</Col>
-                  <Col>{order.totalPrice}zł</Col>
+                  <Col>Sum:</Col>
+                  <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               {!order.isPaid && (
-                <ListGroup.Item>
+                <ListGroup.Item
+                  style={{
+                    backgroundColor: "rgba(0,0,0,0.1)",
+                    color: "bisque",
+                  }}
+                >
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
                     <Loader />
@@ -241,7 +304,7 @@ function OrderScreen() {
                     className="btn btn-block"
                     onClick={deliverHandler}
                   >
-                    Zaznacz jako dostarczone
+                    Set as delivered
                   </Button>
                 </ListGroup.Item>
               )}

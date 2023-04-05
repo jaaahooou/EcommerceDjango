@@ -24,12 +24,15 @@ function ShippingScreen() {
   };
   return (
     <FormContainer>
-      <h1>Wysyłka</h1>
+      <h1>Shipping</h1>
       <CheckoutSteps step1 step2 />
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
-          <Form.Label>Adres</Form.Label>
+          <Form.Label>Adress</Form.Label>
           <Form.Control
+            style={{
+              backgroundColor: "rgba(0,0,0,0.3)",
+            }}
             required
             type="text"
             placeholder="Enter address"
@@ -39,8 +42,11 @@ function ShippingScreen() {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label>Miasto</Form.Label>
+          <Form.Label>City</Form.Label>
           <Form.Control
+            style={{
+              backgroundColor: "rgba(0,0,0,0.3)",
+            }}
             required
             type="text"
             placeholder="Enter city"
@@ -50,8 +56,11 @@ function ShippingScreen() {
         </Form.Group>
 
         <Form.Group controlId="postalCode">
-          <Form.Label>Kod pocztowy</Form.Label>
+          <Form.Label>Postal code</Form.Label>
           <Form.Control
+            style={{
+              backgroundColor: "rgba(0,0,0,0.3)",
+            }}
             required
             type="text"
             placeholder="Enter postal code"
@@ -61,8 +70,11 @@ function ShippingScreen() {
         </Form.Group>
 
         <Form.Group controlId="country">
-          <Form.Label>Kraj</Form.Label>
+          <Form.Label>Country</Form.Label>
           <Form.Control
+            style={{
+              backgroundColor: "rgba(0,0,0,0.3)",
+            }}
             required
             type="text"
             placeholder="Enter country"
@@ -71,8 +83,15 @@ function ShippingScreen() {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
-          Dalej
+        <Button
+          style={{
+            marginTop: "10px",
+            borderRadius: "5px",
+          }}
+          type="submit"
+          variant="primary"
+        >
+          Next
         </Button>
       </Form>
     </FormContainer>

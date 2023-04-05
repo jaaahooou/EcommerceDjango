@@ -220,13 +220,19 @@ const ProductScreen = () => {
                   color: "bisque",
                 }}
               >
-                Brak opini
+                No review
               </Message>
             )}
 
             <ListGroup variant="flush">
               {product.reviews.map((review) => (
-                <ListGroup.Item key={review._id}>
+                <ListGroup.Item
+                  style={{
+                    backgroundColor: "rgba(0,0,0,0.1)",
+                    color: "bisque",
+                  }}
+                  key={review._id}
+                >
                   <h3>{review.name}</h3>
                   <Rating value={review.rating} color="#f8e825" />
                   <p>{review.createdAt.substring(0, 10)}</p>
@@ -239,7 +245,7 @@ const ProductScreen = () => {
                   color: "bisque",
                 }}
               >
-                <h4>Napisz opinię</h4>
+                <h4>Write review</h4>
 
                 {loadingProductReview && <Loader />}
                 {successProductReview && (
@@ -253,11 +259,14 @@ const ProductScreen = () => {
                     <Form.Group controlId="rating">
                       <Form.Label>Rating</Form.Label>
                       <Form.Control
+                        style={{
+                          backgroundColor: "rgba(0,0,0,0.1)",
+                        }}
                         as="select"
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
                       >
-                        <option value="">Wybierz...</option>
+                        <option value="">Choose...</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -266,8 +275,11 @@ const ProductScreen = () => {
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="comment">
-                      <Form.Label>Opinia</Form.Label>
+                      <Form.Label>Review</Form.Label>
                       <Form.Control
+                        style={{
+                          backgroundColor: "rgba(0,0,0,0.1)",
+                        }}
                         as="textarea"
                         row="5"
                         value={comment}
@@ -278,6 +290,10 @@ const ProductScreen = () => {
                         disabled={loadingProductReview}
                         type="submit"
                         variant="primary"
+                        style={{
+                          marginTop: "10px",
+                          borderRadius: "5px",
+                        }}
                       >
                         Wyślij
                       </Button>

@@ -81,6 +81,19 @@ body {
   );
 }
 
+#username,
+#adminmenue {
+  color: bisque;
+}
+
+.navbar-toggler {
+  border: 1px solid bisque;
+  color: bisque;
+}
+span .navbar-toggler-icon {
+  color: bisque;
+}
+
 @media (min-width: 1200px) {
   .product-screen {
     height: 100vh;

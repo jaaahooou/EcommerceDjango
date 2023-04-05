@@ -30,19 +30,31 @@ function Header() {
           collapseOnSelect
           style={{
             borderBottom: "1px solid black",
-            position: "fixed",
             width: "100vw",
             color: "grey",
             zIndex: "990",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backgroundColor: "rgba(0,0,0,0.8)",
           }}
         >
           <Container>
             <LinkContainer style={{ color: "bisque" }} to="/">
               <Navbar.Brand href="/">IncredibleShop</Navbar.Brand>
             </LinkContainer>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Toggle
+              style={{
+                color: "bisque",
+                backgroundColor: "rgba(255,255,255,0.3)",
+              }}
+              aria-controls="basic-navbar-nav"
+            />
+            <Navbar.Collapse
+              style={{
+                color: "bisque",
+                marginTop: "15px",
+              }}
+              id="basic-navbar-nav"
+            >
               <SearchBox />
               <Nav className="ml-auto">
                 <LinkContainer style={{ color: "bisque" }} to="/cart">
@@ -52,14 +64,11 @@ function Header() {
                 </LinkContainer>
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="username">
-                    <LinkContainer style={{ color: "bisque" }} to="/profile">
+                    <LinkContainer to="/profile">
                       <NavDropdown.Item>Profile</NavDropdown.Item>
                     </LinkContainer>
 
-                    <NavDropdown.Item
-                      style={{ color: "bisque" }}
-                      onClick={logoutHandler}
-                    >
+                    <NavDropdown.Item onClick={logoutHandler}>
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>

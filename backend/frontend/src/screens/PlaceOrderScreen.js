@@ -67,34 +67,55 @@ function PlaceOrderScreen() {
   };
 
   return (
-    <div>
+    <div style={{}}>
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
-            <ListGroup.Item>
-              <h2>Wysyłka</h2>
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.3)",
+                color: "bisque",
+              }}
+            >
+              <h2>shipping</h2>
               <p>
-                <strong>Wysyłka:</strong>
+                <strong>Shipping:</strong>
                 {cart.shippingAddress.address},{cart.shippingAddress.city},
                 {"  "}
                 {cart.shippingAddress.postalCode},{"  "}
                 {cart.shippingAddress.country}
               </p>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <h2>Metoda płatności</h2>
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.3)",
+                color: "bisque",
+              }}
+            >
+              <h2>Payment method</h2>
               <p>{cart.paymentMethod}</p>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <h2>Zamówienie</h2>
+            <ListGroup.Item
+              style={{
+                backgroundColor: "rgba(0,0,0,0.3)",
+                color: "bisque",
+              }}
+            >
+              <h2>Order</h2>
 
               {cart.cartItems.length === 0 ? (
-                <Message variant="info">Twój koszyk jest pusty</Message>
+                <Message variant="info">Your cart is empty</Message>
               ) : (
                 <ListGroup variant="flush">
                   {cart.cartItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
+                    <ListGroup.Item
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0.3)",
+                        color: "bisque",
+                      }}
+                      key={index}
+                    >
                       <Row>
                         <Col md={1}>
                           <Image
@@ -105,15 +126,22 @@ function PlaceOrderScreen() {
                           />
                         </Col>
 
-                        <Col>
-                          <Link to={`/products/${item.product}`}>
-                            {item.name}
-                          </Link>
+                        <Col
+                          style={{
+                            marginTop: "10px",
+                          }}
+                        >
+                          {item.name}
                         </Col>
 
-                        <Col md={4}>
-                          {item.qty} X {item.price}zł =
-                          {(item.qty * item.price).toFixed(2)}zł
+                        <Col
+                          md={4}
+                          style={{
+                            marginTop: "10px",
+                          }}
+                        >
+                          {item.qty} X ${item.price} = $
+                          {(item.qty * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -124,47 +152,85 @@ function PlaceOrderScreen() {
           </ListGroup>
         </Col>
         <Col md={4}>
-          <Card>
+          <Card
+            style={{
+              backgroundColor: "rgba(0,0,0,0)",
+            }}
+          >
             <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h2>Podsumowanie</h2>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  color: "bisque",
+                }}
+              >
+                <h2>Summary</h2>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>Koszyk:</Col>
-                  <Col>{cart.itemsPrice}zł</Col>
+                  <Col>Cart:</Col>
+                  <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>Wysyłka:</Col>
-                  <Col>{cart.shippingPrice}zł</Col>
+                  <Col>Shipping:</Col>
+                  <Col>${cart.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>VAT:</Col>
-                  <Col>{cart.taxPrice}zł</Col>
+                  <Col>TAX:</Col>
+                  <Col>${cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  color: "bisque",
+                }}
+              >
                 <Row>
-                  <Col>Suma:</Col>
-                  <Col>{cart.totalPrice}zł</Col>
+                  <Col>Summary:</Col>
+                  <Col>${cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  color: "bisque",
+                }}
+              >
                 {error && <Message variant="danger">{error}</Message>}
               </ListGroup.Item>
 
-              <ListGroup.Item>
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                }}
+              >
                 {userInfo == null ? (
-                  <Message variant="danger">Muszisz być zalogowany</Message>
+                  <Message variant="danger">You must be logged in</Message>
                 ) : (
                   <Button
                     type="button"
@@ -172,7 +238,7 @@ function PlaceOrderScreen() {
                     disabled={cart.cartItems === 0}
                     onClick={placeOrder}
                   >
-                    Złóż zamówienie
+                    Submit order
                   </Button>
                 )}
               </ListGroup.Item>

@@ -30,12 +30,12 @@ const LoginScreen = () => {
 
   return (
     <FormContainer>
-      <h1>Zaloguj się</h1>
+      <h1>Login</h1>
       {error && <h1>{error}</h1>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email">
-          <Form.Label>Adres Email</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Email"
@@ -45,7 +45,7 @@ const LoginScreen = () => {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label>Hasło</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Hasło"
@@ -55,15 +55,15 @@ const LoginScreen = () => {
         </Form.Group>
 
         <Button type="submit" variant="primary">
-          Zaloguj
+          Login
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
-          Jesteś tu nowy?{" "}
+          Don`t have an account?{" "}
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Załóż konto
+            Register
           </Link>
         </Col>
       </Row>

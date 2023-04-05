@@ -51,7 +51,6 @@ function App() {
           </Routes>
         </Container>
       </main>
-      <Footer />
     </Router>
   );
 }

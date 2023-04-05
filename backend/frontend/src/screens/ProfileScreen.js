@@ -64,14 +64,14 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>Profil użytkownika</h2>
+        <h2>User profile</h2>
 
-        {message && <h1>Hasło nie pasuje</h1>}
+        {message && <h1>Password is incorrect</h1>}
         {error && <h1>{error}</h1>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">
-            <Form.Label>Nazwa użytkownika</Form.Label>
+            <Form.Label>Name</Form.Label>
             <Form.Control
               required
               type="name"
@@ -82,7 +82,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="email">
-            <Form.Label>Adres Email</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               required
               type="email"
@@ -93,7 +93,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label>Hasło</Form.Label>
+            <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Enter Password"
@@ -103,7 +103,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="passwordConfirm">
-            <Form.Label>Powtórz hasło</Form.Label>
+            <Form.Label>Repeat Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm Password"
@@ -113,12 +113,18 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Button type="submit" variant="primary">
-            Zapisz
+            Update
           </Button>
         </Form>
       </Col>
       <Col md={9}>
-        <h2>Moje zamówienia</h2>
+        <h2
+          style={{
+            color: "bisque",
+          }}
+        >
+          My orders
+        </h2>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
@@ -128,10 +134,10 @@ const ProfileScreen = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Data</th>
-                <th>Suma</th>
-                <th>Status płatności</th>
-                <th>Status doręczenia</th>
+                <th>Date</th>
+                <th>sum</th>
+                <th>Payment status</th>
+                <th>Delivery status</th>
                 <th></th>
               </tr>
             </thead>
@@ -150,7 +156,7 @@ const ProfileScreen = () => {
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}/`}>
-                      <Button className="btn-sm">Szczegóły</Button>
+                      <Button className="btn-sm">Details</Button>
                     </LinkContainer>
                   </td>
                 </tr>
